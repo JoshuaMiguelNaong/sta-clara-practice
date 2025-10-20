@@ -41,8 +41,9 @@ export default function AccountActions({
       } else {
         alert("Error deleting account: " + data.error);
       }
-    } catch (err: any) {
-      alert("Unexpected error: " + (err.message || err));
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : String(err);
+      alert("Unexpected error: " + message);
     } finally {
       setDeleting(false);
     }

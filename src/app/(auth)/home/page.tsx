@@ -36,8 +36,8 @@ export default function HomePage() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md text-center">
-        <HomeHeader email={user.email} />
-        <NavigationButtons router={router} />
+        <HomeHeader email={user.email ?? null} />
+        <NavigationButtons />
         {/* Pass user.id (Supabase UID) to AccountActions */}
         <AccountActions userId={user.id} onLogout={handleLogout} />
       </div>
